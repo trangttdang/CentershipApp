@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CenterShip</title>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/pages.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1><a href="/">CenterShip</a></h1>
+        </header>
+
+
