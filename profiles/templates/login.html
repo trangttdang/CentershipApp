@@ -1,0 +1,21 @@
+{% extends "header.html" %}
+
+{% block content %} 
+
+{% load crispy_forms_tags %}         
+
+<!--Login--> 
+<!-- container py-5 is how you say 5 rows in bootstrap -->
+<!-- if there was another dive added inside that wuld be a column -->
+<!-- rn we have 5 rows on one col -->
+<div class="container py-5">
+    <h1>Login</h1>
+    <form method="POST">
+      {% csrf_token %}
+      {{ login_form|crispy }}
+      <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+    <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+</div>
+
+{% endblock %}
