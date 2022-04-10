@@ -1,15 +1,18 @@
 from operator import mod
 from django.db import models
+# from django.contrib.auth.models import get_user_model
+
 # Create your models here.
 
-class User(models.Model):
+class Persona(models.Model):
+    # registration = get_user_model()
     name = models.CharField(max_length=80)
     username = models.CharField(max_length=80)
     email = models.CharField(max_length=80)
     password1 = models.CharField(max_length=80)
     password2 = models.CharField(max_length=80)
 
-# class Mentee(User):
+# class Mentee(Persona):
 #     # goalList arraylist
 #     # mentee id pk
 #     # mentor id fk
@@ -24,7 +27,7 @@ class User(models.Model):
 #     def findmentor():
 #         # launches survey?
 
-# class Mentor(User):
+# class Mentor(Persona):
 #     # mentor id pk
 
 #     # methods:
