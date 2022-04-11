@@ -1,14 +1,14 @@
 from django.shortcuts import render
 
 # Create your views here.
-def index(request):
+def site(request):
    return render(request, 'pages/site.html')
 
-def index2(request):
+def about(request):
    return render(request, 'pages/about.html')
 
-def index3(request):
+def mentors(request):
    return render(request,'pages/mentors.html')
 
-def index4(request):
+def mentees(request):
    return render(request,'pages/mentees.html')

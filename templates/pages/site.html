@@ -3,36 +3,57 @@
     <title> CenterShip </title>
   </head>
  <style>
-   p{
-     text-align: center
-   }
-   #ourHeader {
-     border-style: double;
-     border-color: pink;
-     border-width: 9px;
-     padding: 50px;
-     font-size: 240%;
-     color: powderblue;
-   }
+
+p{
+   text-align: center
+ }
+
+#ourHeader{
+  border-style: double;
+  border-color: rgb(245, 192, 255);
+  border-width: 9px;
+  padding: 50px;
+  font-size: 240%;
+  color: rgb(78, 82, 142);
+ }
+ 
+
+
+/* body{
+
+}
+
+ a{
+
+ }
+*/
+	
  </style>
  </head>
  <body>
-   <p id="ourHeader" >Centership</p>
-   <br><br/>
+   <p id="ourHeader">Centership</p>
+   <p style="color:indigo;font-size:20px;text-align:center;">Helping girls stay centered and supported on a path to a rewarding stem career.</p>
+   <body style="background-color:floralwhite;">
+
+ 
+
+<header>
+  <div style="text-align:center"> 
+  <a href="{% url 'about' %}" >Who We Are</a> |
+  <a href="{% url 'mentees' %}">Mentees</a> |
+  <a href="{% url 'mentors' %}">Mentors</a>
+</header>
  </body>
 
-<br><br/>
- <head><strong>Who We Are</strong></head>
- <br><br/>
- <em>Become a Mentee</em>
- <br><br/>
-<em>Become a Mentor</em>
-<br><br/>
+ <style>
+  body {
+    background-image: url('https://uwaterloo.ca/news/sites/ca.news/files/gofgstem.gif');
+    background-blend-mode:multiply;
+    background-repeat: no-repeat;
+    background-size: 1250px;
+    background-position: bottom center;
 
-<h1></h1>
+  }
+  </style>
 
-<div>
-</div>
 
-<p class ="center text">Helping girls stay centered and supported on a path to a rewarding stem career.</p>
-</html>
