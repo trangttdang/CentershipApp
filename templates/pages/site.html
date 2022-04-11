@@ -1,35 +1,46 @@
+
 <html>
  <head>
  <style>
-   p{
-     text-align: center
-   }
-   #ourHeader {
-     border-style: double;
-     border-color: pink;
-     border-width: 9px;
-     padding: 50px;
-     font-size: 240%;
-     color: powderblue;
-   }
+
+p{
+   text-align: center
+ }
+
+#ourHeader{
+  border-style: double;
+  border-color: pink;
+  border-width: 9px;
+  padding: 50px;
+  font-size: 240%;
+  color: powderblue;
+ }
+
+/* body{
+
+}
+
+ a{
+
+ }
+*/
+	
  </style>
  </head>
  <body>
    <p id="ourHeader" >Centership</p>
-   <br><br/>
+
+   <p class ="center text">Helping girls stay centered and supported on a path to a rewarding stem career.</p>
+ 
+
+<header>
+  <a href="{% url 'about' %}">Who We Are</a> |
+  <a href="{% url 'mentees' %}">Mentees</a> |
+  <a href="{% url 'mentors' %}">Mentors</a>
+</header>
  </body>
 
-<br><br/>
- <head><strong>Who We Are</strong></head>
- <br><br/>
- <em>Become a Mentee</em>
- <br><br/>
-<em>Become a Mentor</em>
-<br><br/>
 
-<h1></h1>
 
-<div>
-</div>
 
-<p class ="center text">Helping girls stay centered and supported on a path to a rewarding stem career.</p>
+{% block content %} {% endblock content %}
