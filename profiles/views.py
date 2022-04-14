@@ -1,5 +1,5 @@
 from django.shortcuts import  render, redirect
-from .forms import NewUserForm
+from .forms import NewMenteeForm, NewMentorForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -40,25 +40,25 @@ def login_request(request):
 # for the mentor signup page
 def mentor_request(request):
 	if request.method == "POST":
-		form = NewUserForm(request.POST)
+		form = NewMentorForm(request.POST)
 		if form.is_valid():
 			user = form.save()
 			login(request, user)
 			messages.success(request, "Registration successful." )
 			return redirect("profiles:homepage")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
-	form = NewUserForm()
+	form = NewMentorForm()
 	return render (request=request, template_name="mentor_signup.html", context={"register_form":form})
 
 # for the mentee signup page
 def mentee_request(request):
 	if request.method == "POST":
-		form = NewUserForm(request.POST)
+		form = NewMenteeForm(request.POST)
 		if form.is_valid():
 			user = form.save()
 			login(request, user)
 			messages.success(request, "Registration successful." )
 			return redirect("profiles:homepage")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
-	form = NewUserForm()
+	form = NewMenteeForm()
 	return render (request=request, template_name="mentee_signup.html", context={"register_form":form})
