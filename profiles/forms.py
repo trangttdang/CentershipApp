@@ -3,9 +3,9 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth.models import User
 
-from profiles.models import User
+from profiles.models import User, Mentee, Mentor
 
-# Create your forms here.
+# Create your forms here
 
 class NewMenteeForm(UserCreationForm):
 	email = forms.EmailField(required=True)
