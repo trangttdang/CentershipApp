@@ -12,3 +12,9 @@ def mentors(request):
 
 def mentees(request):
    return render(request,'pages/mentees.html')
+
+def login(request):
+   return render(request, 'pages/login.html')
+
+def signUp(request):
+   return render(request, 'pages/register.html')
