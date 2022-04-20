@@ -29,7 +29,7 @@ def login_request(request):
 			if user is not None:
 				login(request, user)
 				messages.info(request, "You are now logged in as {username}.")
-				return redirect("profiles:homepage")
+				return redirect("profiles:mentee_profile")
 			else:
 				messages.error(request,"Invalid username or password.")
 		else:
@@ -62,3 +62,27 @@ def mentee_request(request):
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewMenteeForm()
 	return render (request=request, template_name="mentee_signup.html", context={"register_form":form})
+
+
+# for the mentor profile page
+def mentor_profile_request(request):
+	form = MentorProfileForm()
+	if request.method == "POST":
+		form = MentorProfileForm(request.POST)
+	return render (request=request, template_name="mentor_profile.html", context={"profile_form":form})
+
+
+# for the mentee profile page
+def mentee_profile_request(request):
+	form = MenteeProfileForm()
+	if request.method == "POST":
+		form = MentorProfileForm(request.POST)
+	return render (request=request, template_name="mentee_profile.html", context={"profile_form":form})
+
+# # for the mentor landing page; this will also contain GET 
+# def mentor_profile_request(request):
+
+# # for the mentee landing page; this will also contain GET 
+# def mentee_profile_request(request):
+
+
