@@ -1,0 +1,121 @@
+<html>
+    <head>
+      <title> CenterShip </title>
+    </head>
+   <style>   
+  </style>
+  </head>
+  <body>
+
+  </body>
+  </html>
+  <head>
+    <title> CenterShip </title>
+  </head>
+ <style>
+
+ </style>
+ </head>
+ <body>
+  <header>
+    <ul>
+      <p><font face = "sans-serif" color="black" size="12">CenterShip</font></p>
+    <li><a href="{% url 'site' %}" > Home</a></li>
+    <li><a href="{% url 'about' %}">Who We Are</a></li>
+    <li><a href="{% url 'mentees' %}">Get a Mentor</a> </li>
+    <li><a href="{% url 'mentors' %}">Become a Mentor</a></li>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href= "{% url 'profiles:login' %}" >Login</a></li>
+      <li><a href="{% url 'profiles:register' %}" >Sign Up</a></li>
+    </ul>
+    </header>
+  </body>
+</header>
+<body style="background-color:floralwhite;">
+ <style>
+ .navbar-right{
+   position: fixed;
+   top: 0px;
+   right: 5px; /*pixels away from the right of the navbar*/
+}
+p {
+  float: left;
+  margin-right: 20px;
+  line-height:13px;
+}
+span.navigationSpace {
+  padding-left: 50px;
+}
+/*
+so that the navigation bar can cover the entire top bit of the site
+*/
+body{
+ margin: 0px;
+}
+
+ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 4;
+  overflow: hidden;
+  background-color: #96646e;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family:sans-serif;
+}
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: white;
+}
+  </style>
+  <html>
+    <head>
+      <style>
+      .circle {
+        background: pink;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        align-items:center;
+        justify-content: center;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 100%;
+        line-height: 240%;
+      }
+      .text{
+        background: radial-gradient(
+        ellipse at center,
+        pink 0%,
+        white 70%,
+        gray 70.3%
+        );
+        height: 100%;
+        width: 100%;
+        color:rgb(221, 191, 201);
+        position: relative;
+        margin: 0;
+      }
+      </style>
+      </head>
+      <body>
+        <div class="circle">Black girls</div>
+        <br><br/>
+        <div class="circle">Hispanic girls</div>
+        <div class="circle">Asian girls</div>
+        <div class="circle">Confused girls</div>
+        <div class="circle">Low-income girls</div>
+        <div class="circle">Sumaiya</div>
+        <div class="circle">Emily</div>
+        <div class="circle">Trang</div>
+        <div class="circle">Mariama</div>
+       </body>
+       </html>
