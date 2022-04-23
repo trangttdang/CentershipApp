@@ -3,6 +3,7 @@ from .forms import NewMenteeForm, NewMentorForm, MenteeProfileForm, MentorProfil
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from profiles.models import User
 
 # for register page...so only needs to get?
 def register_request(request):
@@ -72,7 +73,12 @@ def mentor_profile_request(request):
 	form = MentorProfileForm()
 	if request.method == "POST":
 		form = MentorProfileForm(request.POST)
-		form.save()
+		if form.is_valid():
+			obj = form.save(commit=False)
+			obj.user = User.objects.get(pk = request.user.id)
+			obj.save()
+		else:
+			print("ERROR : Form is invalid")
 		redirect("profiles:mentor_landing")
 	return render (request=request, template_name="mentor_profile.html", context={"mentor_profile_form":form})
 
@@ -82,7 +88,12 @@ def mentee_profile_request(request):
 	form = MenteeProfileForm()
 	if request.method == "POST":
 		form = MenteeProfileForm(request.POST)
-		form.save()
+		if form.is_valid():
+			obj = form.save(commit=False)
+			obj.user = User.objects.get(pk = request.user.id)
+			obj.save()
+		else:
+			print("ERROR : Form is invalid")
 		redirect("profiles:mentee_landing")
 	return render (request=request, template_name="mentee_profile.html", context={"mentee_profile_form":form})
 

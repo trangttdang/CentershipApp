@@ -27,7 +27,7 @@ class Mentor(models.Model):
 
 class Mentee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True )
-    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE, null= True, default=None)
     goals = ArrayField(
         models.TextField(),
         null=True
