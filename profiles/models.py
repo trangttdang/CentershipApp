@@ -23,11 +23,7 @@ class Mentor(models.Model):
     professional_experience = models.TextField(null=True)
     mentee_limit = models.IntegerField(null=True)
     mentorship_duration = models.DurationField(null=True)
-    mentees = ArrayField(
-        models.CharField(max_length=80), 
-        size=mentee_limit,
-        null=True
-        )
+    
 
 class Mentee(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True )

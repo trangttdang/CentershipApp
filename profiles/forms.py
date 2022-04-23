@@ -85,7 +85,7 @@ class MenteeProfileForm(forms.ModelForm):
 	# 	fields = ("professional_interests", "personal_interests")
 	
 	def save(self, commit=True):
-		mentee = super(MentorProfileForm, self).save(commit=False)
+		mentee = super(MenteeProfileForm, self).save(commit=False)
 		if commit:
 			mentee.save()
 		return mentee

@@ -1,5 +1,5 @@
 from django.shortcuts import  render, redirect
-from .forms import NewMenteeForm, NewMentorForm
+from .forms import NewMenteeForm, NewMentorForm, MenteeProfileForm, MentorProfileForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -29,7 +29,10 @@ def login_request(request):
 			if user is not None:
 				login(request, user)
 				messages.info(request, "You are now logged in as {username}.")
-				return redirect("profiles:mentee_profile")
+				if user.is_mentor == True:
+					return redirect("profiles:mentor_profile")
+				else:
+					return redirect("profiles:mentee_profile")	
 			else:
 				messages.error(request,"Invalid username or password.")
 		else:
@@ -45,7 +48,7 @@ def mentor_request(request):
 			user = form.save()
 			login(request, user)
 			messages.success(request, "Registration successful." )
-			return redirect("profiles:homepage")
+			return redirect("profiles:login")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewMentorForm()
 	return render (request=request, template_name="mentor_signup.html", context={"register_form":form})
@@ -58,7 +61,7 @@ def mentee_request(request):
 			user = form.save()
 			login(request, user)
 			messages.success(request, "Registration successful." )
-			return redirect("profiles:homepage")
+			return redirect("profiles:login")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewMenteeForm()
 	return render (request=request, template_name="mentee_signup.html", context={"register_form":form})
@@ -69,15 +72,19 @@ def mentor_profile_request(request):
 	form = MentorProfileForm()
 	if request.method == "POST":
 		form = MentorProfileForm(request.POST)
-	return render (request=request, template_name="mentor_profile.html", context={"profile_form":form})
+		form.save()
+		redirect("profiles:mentor_landing")
+	return render (request=request, template_name="mentor_profile.html", context={"mentor_profile_form":form})
 
 
 # for the mentee profile page
 def mentee_profile_request(request):
 	form = MenteeProfileForm()
 	if request.method == "POST":
-		form = MentorProfileForm(request.POST)
-	return render (request=request, template_name="mentee_profile.html", context={"profile_form":form})
+		form = MenteeProfileForm(request.POST)
+		form.save()
+		redirect("profiles:mentee_landing")
+	return render (request=request, template_name="mentee_profile.html", context={"mentee_profile_form":form})
 
 # # for the mentor landing page; this will also contain GET 
 # def mentor_profile_request(request):

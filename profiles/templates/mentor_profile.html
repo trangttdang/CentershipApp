@@ -9,7 +9,7 @@
 	<h1>Complete your MENTOR profile</h1>
 	<form method="POST">
 		{% csrf_token %}
-		{{ profile_form|crispy }}                    
+		{{ mentor_profile_form|crispy }}                    
 		<button class="btn btn-primary" type="submit">Register</button>
 	</form>
 </div>
