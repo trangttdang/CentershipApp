@@ -1,4 +1,5 @@
 <html>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
     <head>
       <title> CenterShip </title>
     </head>
@@ -19,7 +20,9 @@
  <body>
   <header>
     <ul>
-      <p><font face = "sans-serif" color="black" size="12">CenterShip</font></p>
+      <b>
+      <p><font face = "arial" color="white" size="24">CenterShip</font></p>
+    </b>
     <li><a href="{% url 'site' %}" > Home</a></li>
     <li><a href="{% url 'about' %}">Who We Are</a></li>
     <li><a href="{% url 'mentees' %}">Get a Mentor</a> </li>
@@ -31,11 +34,14 @@
     </ul>
     </header>
   </body>
+  <footer>
+
+  </footer>
 </header>
 <body style="background-color:floralwhite;">
  <style>
  .navbar-right{
-   position: fixed;
+  position:absolute;
    top: 0px;
    right: 5px; /*pixels away from the right of the navbar*/
 }
@@ -66,15 +72,16 @@ li {
 }
 li a {
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family:sans-serif;
+  font-family:arial;
+  font-size: 18;
 }
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: white;
+  background-color: #FFCDB2;
 }
   </style>
   <html>
@@ -104,6 +111,19 @@ li a:hover {
         position: relative;
         margin: 0;
       }
+      footer {
+      text-align: center;
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      height:auto;
+      width:100vw;
+      padding: 3px;
+      padding-top:40px;
+      background-color: #96646e;
+      color: white;
+      }
       </style>
       </head>
       <body>
@@ -119,3 +139,4 @@ li a:hover {
         <div class="circle">Mariama</div>
        </body>
        </html>
+       

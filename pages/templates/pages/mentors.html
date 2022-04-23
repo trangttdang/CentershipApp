@@ -1,4 +1,5 @@
 <html>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
   <head>
     <title> CenterShip </title>
   </head>
@@ -9,7 +10,9 @@
  <body>
   <header>
     <ul>
-      <p><font face="sans-serif" color="black" size="12">CenterShip</font></p>
+      <b>
+      <p><font face = "arial" color="white" size="24">CenterShip</font></p>
+    </b>
     <li><a href="{% url 'site' %}" > Home</a></li>
     <li><a href="{% url 'about' %}" > Who We Are</a></li>
     <li><a href="{% url 'mentees' %}">Get a Mentor</a> </li>
@@ -23,91 +26,133 @@
     
   </header>
   </body>
-  <h2 style = "color:indigo;font-family:Georgia;font-size:40px;text-align:center;">How to Become a Mentor
+  <h2>
+  <h2 id = "#wrapper">How to Become a Mentor
   </h2>
   <br> <br>
 </div>
+
+<p>
+<img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2148414201/settings_images/FuMQ13vES3uRXOFroKAr_Allura_-_Feedback_Session_1.png" width="750" height="400">
+<p style = "margin-left:1000; text-align:left; font-size:18px; font-family:Poppins; width:25em; line-height:2.0; position:relative; top:-400px; left:10px">Studies show that mentorship programs for young girls boosted their interest in STEM and that 20% of girls in STEM are interested in learning more about mentorship opportunities. 
+<br> <br> You may not think that you have much to offer at this stage of your career, but engaging with someone who has had an entirely different background can be immensely rewarding for both of you. </p>
 </header>
 <p style="color:#B5838D;font-size:40px;text-align:center;"> 
 </p>
 <body style="background-color:floralwhite;">
   <div class="container">
+    <br>
     <div class="circle1">
       Empathy
       <br>
-      <p> <p style = "text-align:left;width:12em;line-height: 2.0;"> Mentors should be able to not only provide counsel, coaching, and assistance, but also should always analyze, evaluate, and experience the mentee's circumstances.
+      <p> <p style = "text-align:left;width:12em;line-height: 2.0;font-family:Poppins"> Mentors should be able to not only provide counsel, coaching, and assistance, but also should always analyze, evaluate, and experience the mentee's circumstances.
       </div>
       <div class="circle2">
         Communication
         <br>
-        <p> <p style = "text-align:left;width:12em;line-height: 2.0;">Mentors should be able to actively listen to their mentees. This includes hearing and interpreting to what their mentees are saying.
+        <p> <p style = "text-align:left;width:12em;line-height:2.0;font-family:Poppins">Mentors should be able to actively listen to their mentees. This includes hearing and interpreting to what their mentees are saying.
         </div>
         <div class ="circle3">
         Time Commitment
         <br>
-        <p> <p style = "text-align:left;width:12em;line-height: 2.0;">Mentors should be able to ensure unwavering commitment levels in order to fully give what their mentees need.
+        <p> <p style = "text-align:left;width:12em;line-height:2.0;font-family:Poppins">Mentors should be able to ensure unwavering commitment levels in order to fully give what their mentees need.
       </div> 
       <div class ="circle4">
         Dedication
         <br>
-        <p> <p style = "text-align:left;width:12em;line-height: 2.0;">Mentors should be able to devote their time to helping their mentees feel supported when it comes to STEM.
+        <p> <p style = "text-align:left;width:12em;line-height:2.0;font-family:Poppins">Mentors should be able to devote their time to helping their mentees feel supported when it comes to STEM.
       </div> 
     </div>
 
+    </body>
+    <footer>
+        
+    </footer>
+
+
+
+
+
  <style>
+   h2
+    {
+     font-family: 'Poppins';
+     color:#96646e;
+     font-size:24px;
+     text-align:center;
+
+   }
+   #wrapper {
+   margin-left:auto;
+   margin-right:auto;
+   width:960px;
+}
 
 .container {
   position: relative;
    margin: 0 auto;
    line-height: 50px;
    text-align: left;
+   font-size: 15;
    line-height: 8em;
 }
 
 .container .circle1 {
   height: 150px;
   width: 150px;
-  font-family: Arial;
+  font-family: Poppins;
   background-color: #FFCDB2;
   border-radius: 50%;
   text-align: center;
   display: inline-block;
   margin-left:0;
+  position:relative; 
+  top:350px;
+  left:-550px;
 }
 .container .circle2 {
   height: 150px;
   width: 150px;
-  font-family: Arial;
+  font-family: Poppins;
   background-color: #FFB4A2;
   border-radius: 50%;
   text-align: center;
   display: inline-block;
   margin-left: 270px;
+  position:relative; 
+  top:350px;
+  left:-600px;
 }
 .container .circle3 {
   height: 150px;
   width: 150px;
-  font-family: Arial;
+  font-family: Poppins;
   background-color:#E5989B;
   border-radius: 50%;
   text-align: center ;
   display: inline-block;
   margin-left: 270px;
+  position:relative; 
+  top:203px;
+  left:-100px;
 }
 .container .circle4 {
   height: 150px;
   width: 150px;
-  font-family: Arial;
+  font-family: Poppins;
   background-color:#B5838D;
   border-radius: 50%;
   text-align: center;
   display: inline-block;
   margin-left: 270px;
+  position:relative; 
+  top:200px;
+  left:-200px;
 }
 .navbar-right{
-  position: fixed;
   top: 0px;
   right: 5px; /*pixels away from the right of the navbar*/
+  position:absolute;
 }
 p {
   float: left;
@@ -138,14 +183,28 @@ li {
 }
 li a {
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family:sans-serif;
+  font-family:arial;
+  font-size: 18;
 }
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: white;
+  background-color: #FFCDB2;
 }
- 
+footer {
+  text-align: center;
+  position:absolute;
+  bottom:-200;
+  left:0;
+  right:0;
+  height:auto;
+  width:100vw;
+  padding: 3px;
+  padding-top:40px;
+  background-color: #96646e;
+  color: white;
+}
+</style>

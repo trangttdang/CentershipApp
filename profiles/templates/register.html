@@ -3,13 +3,59 @@
 {% block content %} 
 
 {% load crispy_forms_tags %}         
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
 
 <!--Options to register as mentor or mentee. will format later.--> 
 <div class="container py-1">
 	<h1>Choose Mentor or Mentee Registration</h1>
-	<a href="/mentor_signup">I want to become a MENTOR!</a>
-	<a href="/mentee_signup">I want to become a MENTEE!</a>
-	
+	<p style="text-align:center">
+	<a href="/mentor_signup" class ="button button1">I want to become a MENTOR!</a>
+	<a href="/mentee_signup" class = "button button2">I want to become a MENTEE!</a>
+</p>
+	</body>
+	<body style="background-color:floralwhite;">
 </div>
+<style>
+	h1 {
+		color:#96646e;
+		font-family:Poppins;
+		font-size:40px;
+		text-align:center;
+	}
+	.button {
+		border: none;
+		color: white;
+		padding: 16px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		transition-duration: 0.4s;
+		cursor: pointer;
+		margin-top: 100px;
+	}
+	.button1 {
+		background-color: white; 
+		color: black; 
+		border: 2px solid #FFCDB2;
+	}
+	.button1:hover {
+		background-color: #FFCDB2;
+  		color: black;
+	}
+	.button2 {
+		background-color: white; 
+		color: black; 
+		border: 2px solid #E5989B;
+	}
+	.button2:hover {
+		background-color: #E5989B;
+       	color: black;
+	}
+
+
+    </style>
+
 
 {% endblock %}
