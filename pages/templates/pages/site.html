@@ -4,7 +4,6 @@
   </head>
  <style>
 
-
  </style>
  </head>
  <body>
@@ -17,8 +16,8 @@
     <li><a href="{% url 'mentors' %}">Become a Mentor</a></li>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href= #>Login</a></li>
-      <li><a href=# >Sign Up</a></li>
+      <li><a href= "{% url 'profiles:login' %}" >Login</a></li>
+      <li><a href="{% url 'profiles:register' %}" >Sign Up</a></li>
     </ul>
     
     
@@ -35,48 +34,41 @@
 </div>
 </header>
 
-   <body style="background-color:floralwhite;">
-
- 
-
+<body style="background-color:floralwhite;">
 
  <style>
-
-   .navbar-right{
-  position: fixed;
-  top: 0px;
-  right: 5px; /*pixels away from the right of the navbar*/
-}
-p {
+ .navbar-right{
+   position: fixed;
+   top: 0px;
+   right: 5px; /*pixels away from the right of the navbar*/
+  }
+  p {
     float: left;
     margin-right: 20px;
     line-height:13px;
-}
-
-   span.navigationSpace {
-   padding-left: 50px;
-}
+  }
+  span.navigationSpace {
+    padding-left: 50px;
+  }
 /*
 so that the navigation bar can cover the entire top bit of the site
 */
 body{
- margin: 0px;
+  margin: 0px;
 }
-
-  body {
-    background-image: url('https://media.npr.org/assets/img/2019/10/25/mentorship-ask1_web-site-copy-1-_slide-8aa74ce7ea0cfa02647de0c6363658b47155a5b7.png');
-    background-blend-mode:multiply;
-    background-repeat: no-repeat;
-    background-size: 800px;
-    background-position: right;
-
-  }
+body {
+  background-image: url('https://media.npr.org/assets/img/2019/10/25/mentorship-ask1_web-site-copy-1-_slide-8aa74ce7ea0cfa02647de0c6363658b47155a5b7.png');
+  background-blend-mode:multiply;
+  background-repeat: no-repeat;
+  background-size: 800px;
+  background-position: right;
+}
 ul {
   list-style-type:none;
-    margin: 0;
-    padding: 4;
-    overflow: hidden;
-    background-color: #96646e;
+  margin: 0;
+  padding: 4;
+  overflow: hidden;
+  background-color: #96646e;
 }
 li {
   float: left;
@@ -94,4 +86,4 @@ li a:hover {
   background-color: white;
 }
 
-  </style>
+</style>
