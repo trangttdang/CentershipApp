@@ -74,9 +74,9 @@ def mentor_profile_request(request):
 	if request.method == "POST":
 		form = MentorProfileForm(request.POST)
 		if form.is_valid():
-			obj = form.save(commit=False)
-			obj.user = User.objects.get(pk = request.user.id)
-			obj.save()
+			obj = form.save(commit=False) # Return an object without saving to the DB
+			obj.user = User.objects.get(pk = request.user.id) # Add an author field which will contain current user's id
+			obj.save() # Save the final "real form" to the DB
 		else:
 			print("ERROR : Form is invalid")
 		redirect("profiles:mentor_landing")
@@ -89,9 +89,9 @@ def mentee_profile_request(request):
 	if request.method == "POST":
 		form = MenteeProfileForm(request.POST)
 		if form.is_valid():
-			obj = form.save(commit=False)
-			obj.user = User.objects.get(pk = request.user.id)
-			obj.save()
+			obj = form.save(commit=False) # Return an object without saving to the DB
+			obj.user = User.objects.get(pk = request.user.id) # Add an author field which will contain current user's id
+			obj.save() # Save the final "real form" to the DB
 		else:
 			print("ERROR : Form is invalid")
 		redirect("profiles:mentee_landing")
