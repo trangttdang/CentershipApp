@@ -7,14 +7,8 @@
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
  <header>
    <ul>
-     <b>
-     <p><font face = "arial" color="white" size="24" style="position:relative;top:19px">CenterShip</font></p>
-   </b>
-   <li><a href="{% url 'site' %}">Home</a></li>
-   <li><a href="{% url 'about' %}">Who We Are</a></li>
-   <li><a href="{% url 'mentees' %}">Get a Mentor</a> </li>
-   <li><a href="{% url 'mentors' %}">Become a Mentor</a></li>
-
+     <h2><font face = "arial" color="white" size="24" style="position:relative" onclick="window.location.href='http://127.0.0.1:8000/'">CenterShip</font></h2>
+</ul>
    <ul class="navbar-right">
      <li><a href= "{% url 'profiles:login' %}" >Login</a></li>
      <li><a href="{% url 'profiles:register' %}" >Sign Up</a></li>
@@ -26,7 +20,6 @@
 <br>
 <h1>Login</h1>
   <div class="container py-5">
-
 
     <form method="POST" style="text-align: center;">
       {% csrf_token %}
@@ -44,6 +37,10 @@
 <body style="background-color:floralwhite;"></body>
 
 <style>
+  h2{
+    height: 1.5em;
+    font-weight: bold;
+  }
   h1{ /* for header Login */
     text-align: center;
     font-family: 'Poppins';
@@ -78,7 +75,8 @@ span.navigationSpace {
 ul {
   list-style-type: none;
   text-decoration:none;
-  margin: 0;
+  margin: 0.0;
+
   padding:0.1%;
   overflow: hidden;
   background-color: #96646e;
