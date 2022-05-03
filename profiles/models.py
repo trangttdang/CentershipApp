@@ -8,8 +8,6 @@ from django import forms
 
 
 class User(AbstractUser):
-    professional_interests = models.TextField(null=True)
-    personal_interests = models.TextField(null=True)
     username = models.CharField(max_length=80, unique= True)
     email = models.CharField(max_length=80)
     password1 = models.CharField(max_length=80)
@@ -57,9 +55,6 @@ class Mentee(models.Model):
         models.TextField(),
         null=True
     )
-    # add_goal...would this be defined here or in the view? i feel like it should be defined in the view beacuse how would a function show up on the db? 
-    # delete_goal
-    # find_mentor
 
     PROFESSIONAL_INTERESTS = (
         ('Technical Interviews','Technical Interviews'),
@@ -81,31 +76,3 @@ class Mentee(models.Model):
 
     professional_interests = models.CharField(max_length=80, null=True, choices=PROFESSIONAL_INTERESTS)
     personal_interests = models.CharField(max_length=80, null=True, choices=PERSONAL_INTERESTS)
-
-
-
-# class Mentee(Persona):
-#     # goalList arraylist
-#     # methods:
-#     def goal():
-#         # add or delete a goal
-        
-#     def match():
-#         # if __ = ___ match
-
-#     def findmentor():
-#         # launches survey?
-
-# class Mentor(Persona):
-#     # mentor id pk
-
-#     # methods:
-#     def limitMentee():
-#         # add or delete a goal
-        
-#     def menteeList():
-#         # if __ = ___ match
-
-#     def match():
-#         # launches survey?
-
