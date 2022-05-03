@@ -4,6 +4,9 @@ from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from profiles.models import User
+from .filters import InterestFilter
+from .models import *
+
 
 # for register page...so only needs to get?
 def register_request(request):
@@ -110,3 +113,9 @@ def mentee_profile(request):
 def mentor_profile(request):
 	if request.method == "GET":
 		return render(request=request, template_name="mentor_profile.html")
+
+# for marketplace page where the filters can be applied
+def marketplace_request(request):
+	mentors = Mentor.objects.all()
+	interest_filter = InterestFilter(request.GET, queryset=mentors)
+	return render (request=request, template_name="marketplace.html", context={"interest_filter":interest_filter})
