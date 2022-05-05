@@ -3,59 +3,106 @@
 {% block content %} 
 
 {% load crispy_forms_tags %}         
+<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+ <header>
+   <ul>
+     <h2><font face = "arial" color="white" size="24" style="position:relative" onclick="window.location.href='http://127.0.0.1:8000/'">CenterShip</font></h2>
+</ul>
+   <ul class="navbar-right">
+     <li><a href= "{% url 'profiles:login' %}" >Login</a></li>
+     <li><a href="{% url 'profiles:register' %}" >Sign Up</a></li>
+   </ul>
+   
+ </header>
 
+<!--Login--> 
+<br>
 <!--Options to register as mentor or mentee. will format later.--> 
-<div class="container py-1">
-	<h1>Choose Mentor or Mentee Registration</h1>
-	<p style="text-align:center">
-	<a href="/mentor_signup" class ="button button1">I want to become a MENTOR!</a>
-	<a href="/mentee_signup" class = "button button2">I want to become a MENTEE!</a>
-</p>
+<div class="container py-5">
+	<h1>Register as a MENTOR/MENTEE</h1>
+	<form method="POST" style="text-align:center">
+		{% csrf_token %}
+		{{ register_form|crispy }}                 
+		<br>   
+		<button class="btn btn-primary" type="submit">Register</button>
+	</form>
+	<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+</div>
 	</body>
 	<body style="background-color:floralwhite;">
 </div>
 <style>
-	h1 {
-		color:#96646e;
-		font-family:Poppins;
-		font-size:40px;
-		text-align:center;
-	}
-	.button {
-		border: none;
-		color: white;
-		padding: 16px 32px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 16px;
-		margin: 4px 2px;
-		transition-duration: 0.4s;
-		cursor: pointer;
-		margin-top: 100px;
-	}
-	.button1 {
-		background-color: white; 
-		color: black; 
-		border: 2px solid #FFCDB2;
-	}
-	.button1:hover {
-		background-color: #FFCDB2;
-  		color: black;
-	}
-	.button2 {
-		background-color: white; 
-		color: black; 
-		border: 2px solid #E5989B;
-	}
-	.button2:hover {
-		background-color: #E5989B;
-       	color: black;
-	}
+    h2{
+    height: 1.5em;
+    font-weight: bold;
+  }
 
+  h1{ /* for header Login */
+    text-align: center;
+    font-family: 'Poppins';
+    color: #96646e;
+    font-size:24px;
+    font-weight: bold;
+    
+  }
+  body{
+  margin: 0px;
+  font-size: 18px;
+}
+p {
+    float: center;
+    margin-right: 20px;
+    line-height:13px;
+  }
+  
+  p.text-center{  
+    float:left;
+    width: 100%;
+    padding: 15px;
+    overflow: hidden;
+  }
+  .navbar-right{
+  top: 0px;
+  right: 5px; /*pixels away from the right of the navbar*/
+  position: fixed;
+}
+span.navigationSpace {
+  padding-left: 50px;
+}
+ul {
+  list-style-type: none;
+  text-decoration:none;
+  margin: 0;
+  padding:0.1%;
+  overflow: hidden;
+  background-color: #96646e;
 
-    </style>
+}
+li {
+  float: left;
+  
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  font-family:arial;
+  font-size: 18;
+}
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #FFCDB2;
+  color: white;
+  text-decoration:none;
+}
+#wrapper {
+   margin-left:auto;
+   margin-right:auto;
+   width:960px;
+}
+</style>
 
 
 {% endblock %}
