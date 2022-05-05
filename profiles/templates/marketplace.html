@@ -15,10 +15,19 @@
     <ul>
         {% for mentor in interest_filter.qs %}
         <li>
-            {{mentor.user_id}}
+            <!-- if mentor.mentee_limit > 0 -->
+            <!-- ^^ will need to reflect the decrement of mentee_limit -->
+            <!-- which will need us to have the "matching" figured out -->
+            <!-- aka step 1: find a way to assign foreign key once a "match" button is clicked -->
+            {{mentor.user.first_name}}
+            {{mentor.user.last_name}}
+            {{mentor.user.email}}
+            {{mentor.professional_experience}}
         </li>
         {% endfor %}
     </ul>
+
+    <button class="btn btn-primary" type="Match with this mentor">Find Mentor</button>
 
 </div>
 

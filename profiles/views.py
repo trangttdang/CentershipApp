@@ -100,11 +100,6 @@ def mentee_profile_request(request):
 		redirect("profiles:mentee_landing")
 	return render (request=request, template_name="update_mentee_profile.html", context={"mentee_profile_form":form})
 
-# # for the mentor landing page; this will also contain GET 
-# def mentor_profile_request(request):
-
-# # for the mentee landing page; this will also contain GET 
-# def mentee_profile_request(request):
 
 def mentee_profile(request):
 	if request.method == "GET":
@@ -114,8 +109,12 @@ def mentor_profile(request):
 	if request.method == "GET":
 		return render(request=request, template_name="mentor_profile.html")
 
+
+
 # for marketplace page where the filters can be applied
 def marketplace_request(request):
 	mentors = Mentor.objects.all()
 	interest_filter = InterestFilter(request.GET, queryset=mentors)
+	# if request.method == "POST":
+	# 	return render()
 	return render (request=request, template_name="marketplace.html", context={"interest_filter":interest_filter})
