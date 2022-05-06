@@ -74,3 +74,14 @@ class MenteeProfileForm(forms.ModelForm):
 		if commit:
 			mentee.save()
 		return mentee
+
+class MatchForm(forms.ModelForm):
+	class Meta:
+		model = Mentee
+		fields = ('mentor',)
+	
+	def save(self, commit=True):
+		mentee = super(MatchForm, self).save(commit=False)
+		if commit:
+			mentee.save()
+		return mentee

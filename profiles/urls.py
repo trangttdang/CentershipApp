@@ -15,6 +15,5 @@ urlpatterns = [
     path("mentee_profile", views.mentee_profile, name="mentee_profile"),
     path("update_mentee_profile",views.mentee_profile_request, name="update_mentee_profile"),
     path("update_mentor_profile", views.mentor_profile_request, name="update_mentor_profile"),
-    path("marketplace", views.marketplace_request, name="marketplace"),
-
+    path("marketplace", views.marketplace_request, name="marketplace"), 
 ]

@@ -1,5 +1,5 @@
 from django.shortcuts import  render, redirect
-from .forms import MenteeProfileForm, MentorProfileForm, NewUserForm
+from .forms import MenteeProfileForm, MentorProfileForm, NewUserForm, MatchForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -8,10 +8,7 @@ from .filters import InterestFilter
 from .models import *
 
 
-# for register page...so only needs to get?
 def register_request(request):
-	# if request.method == "GET":
-	# 	return render(request=request, template_name="register.html")
 	if request.method == "POST":
 		form = NewUserForm(request.POST)
 		if form.is_valid():
@@ -97,7 +94,7 @@ def mentee_profile_request(request):
 			obj.save() # Save the final "real form" to the DB
 		else:
 			print("ERROR : Form is invalid")
-		redirect("profiles:mentee_landing")
+		redirect("profiles:mentee_profile")
 	return render (request=request, template_name="update_mentee_profile.html", context={"mentee_profile_form":form})
 
 
@@ -115,6 +112,17 @@ def mentor_profile(request):
 def marketplace_request(request):
 	mentors = Mentor.objects.all()
 	interest_filter = InterestFilter(request.GET, queryset=mentors)
-	# if request.method == "POST":
-	# 	return render()
 	return render (request=request, template_name="marketplace.html", context={"interest_filter":interest_filter})
+
+
+#  for the matching (aka attaching a foreign key to a mentee/get the chosen mentor's id to show up on the mentor column on the mentee table)
+def matching_request(request):
+	if request.method == "POST":
+		form = MatchForm(request.POST)
+		if form.is_valid():
+			obj = form.save(commit=False)
+			Mentee.mentor = Mentor.objects.get(pk = request.user.id)
+			obj.save()
+			messages.success(request, "Congrats! You successfully matched with a mentor!")
+			return redirect("profiles:mentee_profile")
+	return render(request=request, template_name="marketplace.html",context={"match_form":form})
