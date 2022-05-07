@@ -1,0 +1,237 @@
+{% extends "header.html" %}
+
+{% block content %} 
+
+{% load crispy_forms_tags %}         
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+  <head>
+    <title> CenterShip </title>
+  </head>
+ <style>
+
+ </style>
+ </head>
+ <body>
+  <header>
+    <ul>
+      <b>
+      <p><font face = "arial" color="white" size="24">CenterShip</font></p>
+    </b>
+    <li><a href="{% url 'site' %}">Home</a></li>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href= "{% url 'profiles:login' %}" > Sign Out</a></li>
+    </ul>
+    
+  </header>
+  </body>
+<!--Register--> 
+<div class= "container py-5">
+	<h1>My Mentor profile</h1>
+  <br><br>
+	<!-- <form method="POST">
+		{% csrf_token %}
+		{{ mentee_profile_form|crispy }}                    
+		<button class="btn btn-primary" type="submit">Update</button>
+	</form> -->
+	<!-- <h2>Note: All information from register form is here (frontend)</h2> -->
+  <div class= div2 class="#wrapper">
+  <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar" class=" #wrapper">
+  <br> <br>
+    <label>Full Name</label>
+    <input class="" class= "#wrapper" readonly type="text" name="name" placeholder="John Smith" value="John Smith" style="text-align:center">
+
+    <label>Username</label>
+    <input class="" class= "#wrapper" readonly type="text" name="username" placeholder="johnny.s" value="johnny.s" style="text-align:center">
+    
+    <label>Email</label>
+    <input class="" class= "#wrapper" readonly type="text" name="email" placeholder="johnsmith@gmail.com" value="johnsmith@gmail.com" style="text-align:center">
+    
+    <label>Password</label>
+    <input class="" class= "#wrapper" readonly type="text" name="name" placeholder="*******" value="*******" style="text-align:center">
+    <a href="/update_mentor_profile" class ="button button1" style="font-family:Poppins; top:5em; left:55%;position:relative;text-align:center;transform:translate(-25%, -15%); text-align:center;">Update my profile</a>
+</div>
+  <ul2>
+    <li2>
+      <a href="#" class="#wrapper">
+        <h2>NOTE</h2>
+        <p2>Update your profile to share more about you with
+          the CenterShip community.
+  <br> <br>
+          <b>TIP:</b> Once you have finished updating your profile,
+          click on Marketplace to meet your future mentor!!
+        </p2>
+      </a>
+
+    </li2>
+    </ul2>
+    
+
+</div>
+</div>
+
+
+
+<!--<a href="/update_mentor_profile" class ="button button1" style ="font-family:Poppins; position:relative; top:-15em; left:51%; margin-right:-50%; transform:translate(-50%, -5%); text-align:center;">Update my profile</a> -->
+  
+  <body style="background-color:floralwhite;"></body>
+
+</div>
+
+<style>
+  .div2{
+  width: 600px;
+  height:550px;
+  border: 3px solid #96646e;
+  padding: 50px;
+  margin: 20px;
+  position:relative;
+
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -5%);
+      
+  }
+    h1
+   {
+     font-family: 'Poppins';
+     color:#96646e;
+     font-size:24px;
+     text-align:center;
+
+   }
+   h2{
+     font-family: Poppins;
+   }
+ #wrapper {
+   margin-left:auto;
+   margin-right:auto;
+   width:960px;
+}
+ .navbar-right{
+   position:absolute;
+   top: 0px;
+   right: 5px; /*pixels away from the right of the navbar*/
+  }
+  p {
+    float: left;
+    margin-right: 20px;
+    line-height:13px;
+  }
+  span.navigationSpace {
+    padding-left: 50px;
+  }
+/*
+so that the navigation bar can cover the entire top bit of the site
+*/
+body{
+  margin: 0px;
+}
+ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 4;
+  overflow: hidden;
+  background-color: #96646e;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family:arial;
+  font-size: 18;
+}
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #FFCDB2;
+}
+p2{
+  line-height: 13px;
+  font-family: Poppins;
+}
+ul2,li2{
+  list-style:none;
+}
+ul2{
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: left;
+  position: relative;
+  top: -500px;
+}
+ul2 li2 a{
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  text-align: center;
+  height:15em;
+  width:13em;
+  padding:1.0em;
+}
+ul2 li2{
+  margin:1em;
+}
+label{
+  text-align: center;
+  position:relative;
+  font-size:20px;
+  display: block;
+  font-family: Poppins;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  height: 2em;
+}
+input{
+
+  line-height: 2.5em;
+  top:-5px;
+  position: relative;
+  font-family: Poppins;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+.avatar {
+  position: relative;
+  top: 50px;
+  width: 150px;
+  height: 150px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  /*to make picture circular-> border-radius: 50%;*/
+  text-align: center;
+}
+.button {
+  border: none;
+	color: #96646e;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+.button1 {
+  background-color: #af6c799a; 
+	color: black; 
+  border: 2px solid #FFCDB2;
+}
+.button1:hover {
+  background-color: #FFCDB2;
+  color: black;
+}
+
+</style>
+
+{% endblock %}
