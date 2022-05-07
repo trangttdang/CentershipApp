@@ -110,3 +110,4 @@ def mentee_profile(request):
 def mentor_profile(request):
 	if request.method == "GET":
 		return render(request=request, template_name="mentor_profile.html")
+ 
