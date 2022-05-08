@@ -20,10 +20,10 @@
             {{mentor.user.email}}
             {{mentor.professional_experience}}
 
-            <form method="Post">   
-                {% csrf_token %}            
-                {{ match_form|crispy }} 
-                <button class="btn btn-primary" type="submit">Match with this mentor</button>
+            <form action="meet_mentor", method="GET">
+                {% csrf_token %} 
+                <input hidden type="text" name="mentorID" value="{{mentor.user.id}}"/>
+                <input type="submit" value="Match this mentor"/>
             </form>
 
         </li>

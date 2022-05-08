@@ -106,8 +106,6 @@ def mentor_profile(request):
 	if request.method == "GET":
 		return render(request=request, template_name="mentor_profile.html")
 
-
-
 # for marketplace page where the filters can be applied
 def marketplace_request(request):
 	mentors = Mentor.objects.all()
@@ -115,14 +113,20 @@ def marketplace_request(request):
 	return render (request=request, template_name="marketplace.html", context={"interest_filter":interest_filter})
 
 
-#  for the matching (aka attaching a foreign key to a mentee/get the chosen mentor's id to show up on the mentor column on the mentee table)
 def matching_request(request):
-	if request.method == "POST":
-		form = MatchForm(request.POST)
-		if form.is_valid():
-			obj = form.save(commit=False)
-			Mentee.mentor = Mentor.objects.get(pk = request.user.id)
-			obj.save()
-			messages.success(request, "Congrats! You successfully matched with a mentor!")
-			return redirect("profiles:mentee_profile")
-	return render(request=request, template_name="marketplace.html",context={"match_form":form})
+	mentor_id = int(request.GET['mentorID'])
+	Mentee.objects.filter(user=1).update(mentor = mentor_id)
+	messages.success(request, "Congrats! You successfully matched with a mentor!")
+	return render(request=request, template_name="meet_mentor.html")
+
+	#  for the matching (aka attaching a foreign key to a mentee/get the chosen mentor's id to show up on the mentor column on the mentee table)
+# def matching_request(request):
+# 	if request.method == "POST":
+# 		form = MatchForm(request.POST)
+# 		if form.is_valid():
+# 			obj = form.save(commit=False)
+# 			Mentee.mentor = Mentor.objects.get(pk = request.user.id)
+# 			obj.save()
+# 			messages.success(request, "Congrats! You successfully matched with a mentor!")
+# 			return redirect("profiles:mentee_profile")
+# 	return render(request=request, template_name="marketplace.html",context={"match_form":form})
