@@ -115,8 +115,7 @@ def marketplace_request(request):
 
 def matching_request(request):
 	mentor_id = int(request.GET['mentorID'])
-	Mentee.objects.filter(user=1).update(mentor = mentor_id)
-	messages.success(request, "Congrats! You successfully matched with a mentor!")
+	Mentee.objects.filter(user=request.user.id).update(mentor = mentor_id)
 	return render(request=request, template_name="meet_mentor.html")
 
 	#  for the matching (aka attaching a foreign key to a mentee/get the chosen mentor's id to show up on the mentor column on the mentee table)
