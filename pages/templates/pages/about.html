@@ -1,57 +1,71 @@
 <html>
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+
     <head>
       <title> CenterShip </title>
     </head>
-   <style>   
-  </style>
-  </head>
-  <body>
+   <style>
+  
+  
+      
+   </style>
+   </head>
+   <body>
+     
 
-  </body>
-  </html>
+     </body>
+</html>
+
+    
+
   <head>
     <title> CenterShip </title>
   </head>
  <style>
+
 
  </style>
  </head>
  <body>
   <header>
     <ul>
-      <b>
-      <p><font face = "arial" color="white" size="24">CenterShip</font></p>
-    </b>
+      <p><font face = "sans-serif" color="black" size="12">CenterShip</font></p>
     <li><a href="{% url 'site' %}" > Home</a></li>
     <li><a href="{% url 'about' %}">Who We Are</a></li>
     <li><a href="{% url 'mentees' %}">Get a Mentor</a> </li>
     <li><a href="{% url 'mentors' %}">Become a Mentor</a></li>
 
     <ul class="nav navbar-nav navbar-right">
-      <li><a href= "{% url 'profiles:login' %}" >Login</a></li>
-      <li><a href="{% url 'profiles:register' %}" >Sign Up</a></li>
+      <li><a href= #>Login</a></li>
+      <li><a href=# >Sign Up</a></li>
     </ul>
-    </header>
+    
+    
+  </header>
   </body>
-  <footer>
 
-  </footer>
 </header>
-<body style="background-color:floralwhite;">
+
+   <body style="background-color:floralwhite;">
+
+ 
+
+
+
  <style>
- .navbar-right{
-  position:absolute;
-   top: 0px;
-   right: 5px; /*pixels away from the right of the navbar*/
+
+   .navbar-right{
+  position: fixed;
+  top: 0px;
+  right: 5px; /*pixels away from the right of the navbar*/
 }
 p {
-  float: left;
-  margin-right: 20px;
-  line-height:13px;
+    float: left;
+    margin-right: 20px;
+    line-height:13px;
 }
-span.navigationSpace {
-  padding-left: 50px;
+
+   span.navigationSpace {
+   padding-left: 50px;
 }
 /*
 so that the navigation bar can cover the entire top bit of the site
@@ -62,81 +76,155 @@ body{
 
 ul {
   list-style-type:none;
-  margin: 0;
-  padding: 4;
-  overflow: hidden;
-  background-color: #96646e;
+    margin: 0;
+    padding: 4;
+    overflow: hidden;
+    background-color: #96646e;
 }
 li {
   float: left;
 }
 li a {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-family:arial;
-  font-size: 18;
+  font-family:sans-serif;
 }
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: #FFCDB2;
+  background-color: white;
 }
   </style>
-  <html>
-    <head>
-      <style>
-      .circle {
-        background: pink;
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        align-items:center;
-        justify-content: center;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        font-size: 100%;
-        line-height: 240%;
-      }
-      .text{
-        background: radial-gradient(
-        ellipse at center,
-        pink 0%,
-        white 70%,
-        gray 70.3%
-        );
-        height: 100%;
-        width: 100%;
-        color:rgb(221, 191, 201);
-        position: relative;
-        margin: 0;
-      }
-      footer {
-      text-align: center;
-      position:absolute;
-      bottom:0;
-      left:0;
-      right:0;
-      height:auto;
-      width:100vw;
-      padding: 3px;
-      padding-top:40px;
-      background-color: #96646e;
-      color: white;
-      }
-      </style>
-      </head>
-      <body>
-        <div class="circle">Black girls</div>
-        <br><br/>
-        <div class="circle">Hispanic girls</div>
-        <div class="circle">Asian girls</div>
-        <div class="circle">Confused girls</div>
-        <div class="circle">Low-income girls</div>
-        <div class="circle">Sumaiya</div>
-        <div class="circle">Emily</div>
-        <div class="circle">Trang</div>
-        <div class="circle">Mariama</div>
-       </body>
-       </html>
-       
+
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+  
+
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: grey;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+  </style>
+  </head>
+  <body>
+
+
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="mariamapane/Desktop/Mari" alt="Mariama" style="width:100%">
+      <div class="container">
+        <h2>Mariama Pane</h2>
+        <p class="title">Team member</p>
+        <p>I'm a BIPOC woman pursuing a STEM degree at Hunter College.</p>
+        <p>email@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="mariamapane/Desktop/Emily" alt="Emily" style="width:100%">
+      <div class="container">
+        <h2>Emily Kim</h2>
+        <p class="title">Team Member</p>
+        <p>Born and raised in Queens. I'm a BIPOC woman majoring in Computer Science at City College of New York.</p>
+        <p>email@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="mariamapane/Desktop/Trang" alt="Trang" style="width:100%">
+      <div class="container">
+        <h2>Trang Dang</h2>
+        <p class="title">Team Member</p>
+        <p>I'm Trang Dang, a BIPOC woman in STEM. I'm studying Computer Science at the New Jersey Institute of Technology.</p>
+        <p>email@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+  
+ 
+  <div class="column">
+    <div class="card">
+      <img src="mariamapane/Desktop/Sumaiya" alt="Sumaiya" style="width:100%">
+      <div class="container">
+        <h2>Sumaiya Mahin</h2>
+        <p class="title">Team Member</p>
+        <p>I am a Computer Science major and an Art minor at the Macaulay Honors College at the City College of New York. Proud to be a BIPOC woman in STEM!</p>
+        <p>email@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
