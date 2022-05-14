@@ -4,21 +4,15 @@
 
 {% load crispy_forms_tags %}         
 
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
 <!--Register--> 
 <div class="container py-5">
-	<h1>Complete your MENTOR profile</h1>
+	<!--<h1> hi Complete your MENTOR profile</h1>-->
 	<form method="POST">
 		{% csrf_token %}
 		{{ mentor_profile_form|crispy }}                    
-		<button class="btn btn-primary" type="submit">Update</button>
+		<button class="btn btn-primary" type="submit">Update</button> 
 	</form>
 </div>
 
-<style>
-	h1{
-		font-family: Poppins;
-	}
-</style>
 
 {% endblock %}
