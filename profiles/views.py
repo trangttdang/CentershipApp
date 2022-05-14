@@ -118,14 +118,3 @@ def matching_request(request):
 	Mentee.objects.filter(user=request.user.id).update(mentor = mentor_id)
 	return render(request=request, template_name="meet_mentor.html")
 
-	#  for the matching (aka attaching a foreign key to a mentee/get the chosen mentor's id to show up on the mentor column on the mentee table)
-# def matching_request(request):
-# 	if request.method == "POST":
-# 		form = MatchForm(request.POST)
-# 		if form.is_valid():
-# 			obj = form.save(commit=False)
-# 			Mentee.mentor = Mentor.objects.get(pk = request.user.id)
-# 			obj.save()
-# 			messages.success(request, "Congrats! You successfully matched with a mentor!")
-# 			return redirect("profiles:mentee_profile")
-# 	return render(request=request, template_name="marketplace.html",context={"match_form":form})
