@@ -2,18 +2,178 @@
 
 {% block content %} 
 
-{% load crispy_forms_tags %}         
+{% load crispy_forms_tags %}  
+ 
+  
+  <!--html for registering-->
+  <body>
 
-<!--Register--> 
-<div class="container py-5">
-	<h1>My Mentee profile</h1>
-	<!-- <form method="POST">
-		{% csrf_token %}
-		{{ mentee_profile_form|crispy }}                    
-		<button class="btn btn-primary" type="submit">Update</button>
-	</form> -->
-	<h2>Note: All information from register form is here (frontend)</h2>
-	<a href="/update_mentee_profile">Update my profile</a>
-</div>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect"
+			href="https://fonts.gstatic.com">
+		<link href=
+	"https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap"
+			rel="stylesheet">
+	</head>
+		<body style="background-color: #96646e;"></body>
+		<h1>My Mentee Profile</h1>
+	  <br><br>
+		</body>
+	 
+	<body>
+		<br><br/>
+		<div class="container1">
+			<div class="user-image">
+				<a href="htts://placeholder.com">
+				<img src="https://robohash.org/mail@ashallendesign.co.uk"
+				alt="this image contains user-image"></a>
+				
+			</div>
+			<br><br/>
+			<label>Full Name</label>
+			<input type="text">
+			
+		
+			<label>Username</label>
+			<input type="text">
+			
+			<label>Email</label>
+			<input type = "text">
 
+			<label>Career Interest</label>
+			<select>
+				<option>Data Science</option>
+				<option>Software Development</option>
+				<option>Undecided</option>
+			  </select>
+			
+			<label>Password</label>
+			<input type = "text">
+			<br><br/>
+			<a href="/update_mentee_profile" class ="button button1" style="font-family:Poppins; top:5em; left: 20%;position:relative;text-align:center;transform:translate(-25%, -15%); text-align:center;">Update my mentee profile!</a>
+</html>
+
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	background-color: rgb(255, 255, 255);
+
+}
+
+.container1{
+	width: 25em;
+	background-color: whitesmoke;
+	overflow: hidden;
+    border-radius: 1em;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1em;
+
+}
+
+.user-image{
+    padding: 3em 0;
+    background-image: linear-gradient(70deg,#eaebed,#e2e5e8);
+}
+ 
+.user-image img{
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    box-shadow:  0 0.6em 1.8em ;
+    object-fit: cover;
+}
+
+content{
+    color: #565656;
+    padding: 2.2em;
+}
+ 
+.name{
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+.username{
+    font-size: 1em;
+    color: #96646e;
+}
+ 
+.links{
+    display: flex;
+    justify-content: center;
+    margin: 1.5em 0;
+}
+ 
+a{
+    text-decoration: none;
+    color: #565656;
+    transition: all 0.3s;
+    font-size: 2em;
+    margin-right: 1.2em;
+}
+
+a:last-child{
+    margin: 0;
+}
+
+#wrapper {
+   margin-left:auto;
+   margin-right:auto;
+   width:965px;
+}
+label{
+  text-align: center;
+  position:relative;
+  font-size:23px;
+  display: block;
+  font-family: 'Georgia';
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  height: 1em;
+}
+
+.button1 {
+  background-color: #af6c799a; 
+	color: black; 
+  border: 2px solid #FFCDB2;
+}
+.button1:hover {
+  background-color: #f0e2da;
+  color: black;
+}
+
+.button {
+  border: none;
+	color: #96646e;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: p
+}
+
+input{
+line-height: 1.5em;
+top:-5px;
+position: relative;
+font-family: Poppins;
+left: 42%;
+margin-left: -50%;
+transform: translate(-50%, -50%);
+}
+</style>
 {% endblock %}
