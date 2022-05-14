@@ -57,9 +57,6 @@ class MentorProfileForm(forms.ModelForm):
 	class Meta:
 		model = Mentor
 		fields = ("education", "professional_experience", "mentee_limit", "mentorship_duration", "professional_interests","personal_interests")
-	# class Meta2:
-	# 	model = User
-	# 	fields = ("professional_interests", "personal_interests")
 	
 	def save(self, commit=True):
 		mentor = super(MentorProfileForm, self).save(commit=False)
@@ -71,12 +68,20 @@ class MenteeProfileForm(forms.ModelForm):
 	class Meta:
 		model = Mentee
 		fields = ('goals',"professional_interests","personal_interests")
-	# class Meta2:
-	# 	model = User
-	# 	fields = ("professional_interests", "personal_interests")
 	
 	def save(self, commit=True):
 		mentee = super(MenteeProfileForm, self).save(commit=False)
+		if commit:
+			mentee.save()
+		return mentee
+
+class MatchForm(forms.ModelForm):
+	class Meta:
+		model = Mentee
+		fields = ('mentor',)
+	
+	def save(self, commit=True):
+		mentee = super(MatchForm, self).save(commit=False)
 		if commit:
 			mentee.save()
 		return mentee

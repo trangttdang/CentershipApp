@@ -1,14 +1,14 @@
 from django.shortcuts import  render, redirect
-from .forms import MenteeProfileForm, MentorProfileForm, NewUserForm
+from .forms import MenteeProfileForm, MentorProfileForm, NewUserForm, MatchForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from profiles.models import User
+from .filters import InterestFilter
+from .models import *
 
-# for register page...so only needs to get?
+
 def register_request(request):
-	# if request.method == "GET":
-	# 	return render(request=request, template_name="register.html")
 	if request.method == "POST":
 		form = NewUserForm(request.POST)
 		if form.is_valid():
@@ -79,7 +79,7 @@ def mentor_profile_request(request):
 			obj.save() # Save the final "real form" to the DB
 		else:
 			print("ERROR : Form is invalid")
-		redirect("profiles:mentor_landing")
+		redirect("profiles:mentor_profile")
 	return render (request=request, template_name="update_mentor_profile.html", context={"mentor_profile_form":form})
 
 
@@ -94,14 +94,9 @@ def mentee_profile_request(request):
 			obj.save() # Save the final "real form" to the DB
 		else:
 			print("ERROR : Form is invalid")
-		redirect("profiles:mentee_landing")
+		redirect("profiles:mentee_profile")
 	return render (request=request, template_name="update_mentee_profile.html", context={"mentee_profile_form":form})
 
-# # for the mentor landing page; this will also contain GET 
-# def mentor_profile_request(request):
-
-# # for the mentee landing page; this will also contain GET 
-# def mentee_profile_request(request):
 
 def mentee_profile(request):
 	if request.method == "GET":
@@ -110,4 +105,16 @@ def mentee_profile(request):
 def mentor_profile(request):
 	if request.method == "GET":
 		return render(request=request, template_name="mentor_profile.html")
- 
+
+# for marketplace page where the filters can be applied
+def marketplace_request(request):
+	mentors = Mentor.objects.all()
+	interest_filter = InterestFilter(request.GET, queryset=mentors)
+	return render (request=request, template_name="marketplace.html", context={"interest_filter":interest_filter})
+
+
+def matching_request(request):
+	mentor_id = int(request.GET['mentorID'])
+	Mentee.objects.filter(user=request.user.id).update(mentor = mentor_id)
+	return render(request=request, template_name="meet_mentor.html")
+
