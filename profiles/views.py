@@ -79,7 +79,7 @@ def mentor_profile_request(request):
 			obj.save() # Save the final "real form" to the DB
 		else:
 			print("ERROR : Form is invalid")
-		redirect("profiles:mentor_landing")
+		redirect("profiles:mentor_profile")
 	return render (request=request, template_name="update_mentor_profile.html", context={"mentor_profile_form":form})
 
 
