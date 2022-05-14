@@ -1,4 +1,4 @@
-{% extends "header.html" %}
+{% extends "header.html" %} 
 
 {% block content %} 
 
@@ -25,32 +25,65 @@
     
   </header>
   </body>
+  
 <!--Register--> 
 <div class= "container py-5">
 	<h1>My Mentor profile</h1>
   <br><br>
-	<!-- <form method="POST">
-		{% csrf_token %}
-		{{ mentee_profile_form|crispy }}                    
-		<button class="btn btn-primary" type="submit">Update</button>
-	</form> -->
+
 	<!-- <h2>Note: All information from register form is here (frontend)</h2> -->
+
   <div class= div2 class="#wrapper">
   <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar" class=" #wrapper">
   <br> <br>
     <label>Full Name</label>
-    <input class="" class= "#wrapper" readonly type="text" name="name" placeholder="John Smith" value="John Smith" style="text-align:center">
+    <br>
+    <input type="text" class="form-control" class= "#wrapper" value ="{{ user.get_full_name }}" style="text-align:center;  line-height: 2.5em;
+    top:-5px;
+    position: relative;
+    font-family: Poppins;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);"> 
 
     <label>Username</label>
-    <input class="" class= "#wrapper" readonly type="text" name="username" placeholder="johnny.s" value="johnny.s" style="text-align:center">
+    <br>
+    <input type="text" class="form-control" class= "#wrapper" value="{{ user.username }}" style="text-align:center;  line-height: 2.5em;
+    top:-5px;
+    position: relative;
+    font-family: Poppins;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);">
     
     <label>Email</label>
-    <input class="" class= "#wrapper" readonly type="text" name="email" placeholder="johnsmith@gmail.com" value="johnsmith@gmail.com" style="text-align:center">
+    <br>
+    <input type="text" class="form-control" class= "#wrapper" value="{{ user.email }}" style="text-align:center;  line-height: 2.5em;
+    top:-5px;
+    position: relative;
+    font-family: Poppins;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);">
     
     <label>Password</label>
-    <input class="" class= "#wrapper" readonly type="text" name="name" placeholder="*******" value="*******" style="text-align:center">
-    <a href="/update_mentor_profile" class ="button button1" style="font-family:Poppins; top:5em; left:55%;position:relative;text-align:center;transform:translate(-25%, -15%); text-align:center;">Update my profile</a>
+    <br>
+    <input type="text" class="form-control" class= "#wrapper" value="********" style="text-align:center;  line-height: 2.5em;
+    top:-5px;
+    position: relative;
+    font-family: Poppins;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);">
+
+    <form method="POST" style="text-align: center; position:relative;line-height:2.5em">
+      {% csrf_token %}
+      {{ mentor_profile_form|crispy }}                    
+      <button class="btn btn-primary" type="submit">Update</button> 
+    
+    </form>
 </div>
+
   <ul2>
     <li2>
       <a href="#" class="#wrapper">
@@ -68,19 +101,18 @@
 
 </div>
 </div>
-
-
-
-<!--<a href="/update_mentor_profile" class ="button button1" style ="font-family:Poppins; position:relative; top:-15em; left:51%; margin-right:-50%; transform:translate(-50%, -5%); text-align:center;">Update my profile</a> -->
   
   <body style="background-color:floralwhite;"></body>
 
-</div>
 
 <style>
+  .form-control{
+    width:240px;
+  }
+
   .div2{
-  width: 600px;
-  height:550px;
+  width: 650px;
+  height:1050px;
   border: 3px solid #96646e;
   padding: 50px;
   margin: 20px;
@@ -156,13 +188,13 @@ p2{
 ul2,li2{
   list-style:none;
 }
-ul2{
+ul2{  /*handles the NOTE on side*/
   display: flex;
   text-align: center;
   flex-wrap: wrap;
   justify-content: left;
   position: relative;
-  top: -500px;
+  top: -1000px;
 }
 ul2 li2 a{
   text-decoration:none;
@@ -186,18 +218,9 @@ label{
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  height: 2em;
+  height: 1em;
 }
-input{
 
-  line-height: 2.5em;
-  top:-5px;
-  position: relative;
-  font-family: Poppins;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-}
 .avatar {
   position: relative;
   top: 50px;

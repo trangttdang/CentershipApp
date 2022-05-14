@@ -31,7 +31,7 @@ def login_request(request):
 				login(request, user)
 				messages.info(request, "You are now logged in as {username}.")
 				if user.user_type == 'mentor':
-					return redirect("profiles:mentor_profile")
+					return redirect("profiles:update_mentor_profile")
 				else:
 					return redirect("profiles:mentee_profile")	
 			else:
@@ -80,7 +80,7 @@ def mentor_profile_request(request):
 		else:
 			print("ERROR : Form is invalid")
 		redirect("profiles:mentor_profile")
-	return render (request=request, template_name="update_mentor_profile.html", context={"mentor_profile_form":form})
+	return render (request=request, template_name="mentor_profile.html", context={"mentor_profile_form":form})
 
 
 # for the mentee profile page
