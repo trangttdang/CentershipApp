@@ -1,0 +1,35 @@
+{% extends "header.html" %}
+
+{% block content %} 
+
+<!-- {% load crispy_forms_tags %}          -->
+
+<!--Marketplace--> 
+<div class="container py-5">
+	<h1>Apply filters to find a good mentor match</h1>
+	<form method="GET">
+        {{interest_filter.form}}                  
+		<button class="btn btn-primary" type="submit">Find Mentor</button>
+	</form>
+
+    <ul>
+        {% for mentor in interest_filter.qs %}
+        <li>
+            {{mentor.user.first_name}}
+            {{mentor.user.last_name}}
+            {{mentor.user.email}}
+            {{mentor.professional_experience}}
+
+            <form action="meet_mentor", method="GET">
+                {% csrf_token %} 
+                <input hidden type="text" name="mentorID" value="{{mentor.user.id}}"/>
+                <input type="submit" value="Match this mentor"/>
+            </form>
+
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock %}

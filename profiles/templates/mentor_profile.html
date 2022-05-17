@@ -1,4 +1,4 @@
-{% extends "header.html" %}
+{% extends "header.html" %} 
 
 {% block content %} 
 
@@ -25,20 +25,31 @@
     
   </header>
   </body>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 7a4d2b3e5a859c8d8342abdaad0c509ef9fb9401
 <!--Register--> 
 <div class= "container py-5">
 	<h1>My Mentor profile</h1>
   <br><br>
+<<<<<<< HEAD
 	<!-- <form method="POST">
 		{% csrf_token %}
 		{{ mentee_profile_form|crispy }}                    
 		<button class="btn btn-primary" type="submit">Update</button>
 	</form> -->
 	<!-- <h2>Note: All information from register form is here (frontend)</h2> -->
+=======
+
+	<!-- <h2>Note: All information from register form is here (frontend)</h2> -->
+
+>>>>>>> 7a4d2b3e5a859c8d8342abdaad0c509ef9fb9401
   <div class= div2 class="#wrapper">
   <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar" class=" #wrapper">
   <br> <br>
     <label>Full Name</label>
+<<<<<<< HEAD
     <input class="" class= "#wrapper" readonly type="text" name="name" placeholder="John Smith" value="John Smith" style="text-align:center">
 
     <label>Username</label>
@@ -81,6 +92,84 @@
   .div2{
   width: 600px;
   height:550px;
+=======
+    <br>
+    <input type="text" class="form-control" class= "#wrapper" value ="{{ user.get_full_name }}" style="text-align:center;  line-height: 2.5em;
+    top:-5px;
+    position: relative;
+    font-family: Poppins;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);"> 
+
+    <label>Username</label>
+    <br>
+    <input type="text" class="form-control" class= "#wrapper" value="{{ user.username }}" style="text-align:center;  line-height: 2.5em;
+    top:-5px;
+    position: relative;
+    font-family: Poppins;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);">
+    
+    <label>Email</label>
+    <br>
+    <input type="text" class="form-control" class= "#wrapper" value="{{ user.email }}" style="text-align:center;  line-height: 2.5em;
+    top:-5px;
+    position: relative;
+    font-family: Poppins;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);">
+    
+    <label>Password</label>
+    <br>
+    <input type="text" class="form-control" class= "#wrapper" value="********" style="text-align:center;  line-height: 2.5em;
+    top:-5px;
+    position: relative;
+    font-family: Poppins;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);">
+
+    <form method="POST" style="text-align: center; position:relative;line-height:2.5em">
+      {% csrf_token %}
+      {{ mentor_profile_form|crispy }}                    
+      <button class="btn btn-primary" type="submit">Update</button> 
+    
+    </form>
+</div>
+
+  <ul2>
+    <li2>
+      <a href="#" class="#wrapper">
+        <h2>NOTE</h2>
+        <p2>Update your profile to share more about you with
+          the CenterShip community.
+          <br> <br>
+          <b>TIP:</b> Once you have finished updating your profile,
+          click on Marketplace to meet your future mentor!!
+        </p2>
+      </a>
+    </li2>
+    </ul2>
+    
+
+</div>
+</div>
+  
+  <body style="background-color:floralwhite;"></body>
+
+
+<style>
+  .form-control{
+    width:240px;
+  }
+
+  .div2{
+  width: 650px;
+  height:1050px;
+>>>>>>> 7a4d2b3e5a859c8d8342abdaad0c509ef9fb9401
   border: 3px solid #96646e;
   padding: 50px;
   margin: 20px;
@@ -156,13 +245,21 @@ p2{
 ul2,li2{
   list-style:none;
 }
+<<<<<<< HEAD
 ul2{
+=======
+ul2{  /*handles the NOTE on side*/
+>>>>>>> 7a4d2b3e5a859c8d8342abdaad0c509ef9fb9401
   display: flex;
   text-align: center;
   flex-wrap: wrap;
   justify-content: left;
   position: relative;
+<<<<<<< HEAD
   top: -500px;
+=======
+  top: -1000px;
+>>>>>>> 7a4d2b3e5a859c8d8342abdaad0c509ef9fb9401
 }
 ul2 li2 a{
   text-decoration:none;
@@ -186,6 +283,7 @@ label{
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+<<<<<<< HEAD
   height: 2em;
 }
 input{
@@ -198,6 +296,11 @@ input{
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
+=======
+  height: 1em;
+}
+
+>>>>>>> 7a4d2b3e5a859c8d8342abdaad0c509ef9fb9401
 .avatar {
   position: relative;
   top: 50px;
@@ -233,4 +336,8 @@ input{
 
 </style>
 
+<<<<<<< HEAD
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> 7a4d2b3e5a859c8d8342abdaad0c509ef9fb9401
