@@ -108,13 +108,15 @@ def mentor_profile(request):
 
 # for marketplace page where the filters can be applied
 def marketplace_request(request):
-	mentors = Mentor.objects.all()
+	mentors = Mentor.objects.filter(mentee_limit__gte=1)
 	interest_filter = InterestFilter(request.GET, queryset=mentors)
 	return render (request=request, template_name="marketplace.html", context={"interest_filter":interest_filter})
 
-
 def matching_request(request):
 	mentor_id = int(request.GET['mentorID'])
-	Mentee.objects.filter(user=request.user.id).update(mentor = mentor_id)
+	limit = int(request.GET['menteeLimit'])
+	if limit > 0:
+		Mentee.objects.filter(user = request.user.id).update(mentor = mentor_id)
+		limit-=1
+		Mentor.objects.filter(user = mentor_id).update(mentee_limit = limit)
 	return render(request=request, template_name="meet_mentor.html")
-
