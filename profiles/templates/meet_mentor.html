@@ -4,9 +4,70 @@
 
 {% load crispy_forms_tags %}         
 
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+  <title> CenterShip </title>
+</head>
+<style>
+
+</style>
+</head>
+<body>
+<header>
+  <ul>
+    <b>
+    <p><font face = "arial" color="white" size="24">CenterShip</font></p>
+  </b>
+  <li><a href="{% url 'site' %}" style="font-family:Poppins">Home</a></li>
+  <li><a href="http://127.0.0.1:8000/marketplace"style="font-family:Poppins">Marketplace</a></li>
+
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href= "{% url 'profiles:login' %}"> Sign Out</a></li>
+  </ul>
+  
+</header>
+</body>
+<body style="background-color:floralwhite;"></body>
 <!--Register--> 
-<div class="container py-5">
-	<h1>"Congrats! You successfully matched with a mentor!"</h1>
+<div class="container py-5" style="font-family:Poppins;text-align:center;position:relative;top:150px">
+	<h1>"Congrats! You successfully matched with {{ user.get_full_name }}"</h1>
 </div>
 
+<style>
+.navbar-right{
+	position:absolute;
+	top: 0px;
+	right: 5px; /*pixels away from the right of the navbar*/
+	}
+	p {
+	 float: left;
+	 margin-right: 20px;
+	 line-height:13px;
+	}
+	span.navigationSpace {
+	 padding-left: 50px;
+	}
+	body{
+	margin: 0px;
+	}
+	ul {
+	list-style-type:none;
+	margin: 0;
+	padding: 4;
+	overflow: hidden;
+	background-color: #96646e;
+	}
+	li {
+	float: left;
+	}
+	li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-family:arial;
+	font-size: 18;
+	}
+
+</style>
 {% endblock %}

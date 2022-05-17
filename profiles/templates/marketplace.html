@@ -3,33 +3,140 @@
 {% block content %} 
 
 <!-- {% load crispy_forms_tags %}          -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+<head>
+  <title> CenterShip </title>
+</head>
+<style>
 
+</style>
+</head>
+<body>
+<header>
+  <ul>
+    <b>
+    <p><font face = "arial" color="white" size="24">CenterShip</font></p>
+  </b>
+  <li><a href="{% url 'site' %}" style="font-family:Poppins">Home</a></li>
+
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href= "{% url 'profiles:login' %}"> Sign Out</a></li>
+  </ul>
+  
+</header>
+</body>
+
+<body style="background-color:floralwhite;"></body>
 <!--Marketplace--> 
-<div class="container py-5">
+
+<div class="container py-5" style="text-align:center;font-family:Poppins">
 	<h1>Apply filters to find a good mentor match</h1>
-	<form method="GET">
+	<form method="GET" style="position:relative;top:190px">
         {{interest_filter.form}}                  
-		<button class="btn btn-primary" type="submit">Find Mentor</button>
+		<button class="button button1" type="submit">Find Mentor</button>
 	</form>
 
-    <ul>
+    <ul2>
         {% for mentor in interest_filter.qs %}
-        <li>
+        <li2>
+          <br>
             {{mentor.user.first_name}}
             {{mentor.user.last_name}}
+            <br>
             {{mentor.user.email}}
+            <br>
             {{mentor.professional_experience}}
 
             <form action="meet_mentor", method="GET">
                 {% csrf_token %} 
                 <input hidden type="text" name="mentorID" value="{{mentor.user.id}}"/>
-                <input type="submit" value="Match this mentor"/>
+                <input type="submit" class="button button1" value="Match this mentor"/>
             </form>
 
-        </li>
+        </li2>
         {% endfor %}
-    </ul>
+    </ul2>
 
 </div>
+<style>
+h1
+{
+  font-family: 'Poppins';
+  color:#96646e;
+  font-size:24px;
+  text-align:center;
 
+}
+h2{
+  font-family: Poppins;
+}
+ul2{
+  top:250px;
+  position:relative;
+}
+#wrapper {
+margin-left:auto;
+margin-right:auto;
+width:960px;
+}
+.navbar-right{
+position:absolute;
+top: 0px;
+right: 5px; /*pixels away from the right of the navbar*/
+}
+p {
+ float: left;
+ margin-right: 20px;
+ line-height:13px;
+}
+span.navigationSpace {
+ padding-left: 50px;
+}
+/*
+so that the navigation bar can cover the entire top bit of the site
+*/
+body{
+margin: 0px;
+}
+ul {
+list-style-type:none;
+margin: 0;
+padding: 4;
+overflow: hidden;
+background-color: #96646e;
+}
+li {
+float: left;
+}
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+font-family:arial;
+font-size: 18;
+}
+.button {
+  border: none;
+	color: #96646e;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+.button1 {
+  background-color: #af6c799a; 
+	color: black; 
+  border: 2px solid #FFCDB2;
+}
+.button1:hover {
+  background-color: #FFCDB2;
+  color: black;
+}
+</style>
 {% endblock %}
