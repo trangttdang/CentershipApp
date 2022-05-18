@@ -1,3 +1,6 @@
+from multiprocessing.dummy import current_process
+import re
+from turtle import update
 from django.shortcuts import  render, redirect
 from .forms import MenteeProfileForm, MentorProfileForm, NewUserForm, MatchForm
 from django.contrib.auth import login, authenticate
@@ -89,9 +92,23 @@ def mentee_profile_request(request):
 	if request.method == "POST":
 		form = MenteeProfileForm(request.POST)
 		if form.is_valid():
+			current_user = request.user.id
 			obj = form.save(commit=False) # Return an object without saving to the DB
-			obj.user = User.objects.get(pk = request.user.id) # Add an author field which will contain current user's id
+			obj.user = User.objects.get(pk = current_user) # Add an author field which will contain current user's id
 			obj.save() # Save the final "real form" to the DB
+			# instance = Mentee.objects.values('goals')[5]
+			# goals = instance['goals']
+			current_mentee = Mentee.objects.get(user=current_user)
+			goals = current_mentee.goals
+			if not Goal.objects.filter(mentee = current_mentee).exists():
+				for goal in goals:
+					Goal.objects.create(mentee = current_mentee, name= goal, achieved = False)
+			else:
+				current_goal = Goal.objects.filter(mentee = current_mentee).first()
+				current_goal_id = current_goal.id
+				for goal in goals:
+					Goal.objects.filter(mentee = current_mentee, id = current_goal_id).update(name= goal)
+					current_goal_id += 1
 		else:
 			print("ERROR : Form is invalid")
 		redirect("profiles:mentee_profile")
@@ -117,4 +134,19 @@ def matching_request(request):
 	mentor_id = int(request.GET['mentorID'])
 	Mentee.objects.filter(user=request.user.id).update(mentor = mentor_id)
 	return render(request=request, template_name="meet_mentor.html")
+
+def goal_tracker_request(request):
+	# goal_list = Goal.objects.filter(mentee= request.user.id).values_list('name')
+	goal_list = Goal.objects.filter(mentee= request.user.id)
+	if request.method == "POST":
+		id_list = request.POST.getlist('boxes')
+		print(id_list)
+		# Update the database
+		goal_list.update(achieved = False)
+		for id in id_list:
+			Goal.objects.filter(pk = int(id.rstrip(','))).update(achieved = True)
+		messages.success(request, 'Congratulations! You achieved all goals!')
+		return redirect('profiles:goal_tracker')
+	else:
+		return render(request=request, template_name="goal_tracker.html",context={"goals": goal_list})
 

@@ -17,4 +17,5 @@ urlpatterns = [
     path("update_mentor_profile", views.mentor_profile_request, name="update_mentor_profile"),
     path("marketplace", views.marketplace_request, name="marketplace"), 
     path("meet_mentor", views.matching_request, name="meet_mentor"),
+    path("goal_tracker", views.goal_tracker_request,name="goal_tracker"),
 ]
