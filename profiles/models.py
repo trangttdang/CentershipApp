@@ -78,11 +78,11 @@ class Mentee(models.Model):
     professional_interests = models.CharField(max_length=80, null=True, choices=PROFESSIONAL_INTERESTS)
     personal_interests = models.CharField(max_length=80, null=True, choices=PERSONAL_INTERESTS)
     #Create goals
-    def save(self,*args,**kwargs):
-        created = not self.pk
-        super(Mentee,self).save(*args,**kwargs)
-        if created:
-            Goal.objects.create(mentee=1,name= Mentee.goals, achieved = False)
+    # def save(self,*args,**kwargs):
+    #     created = not self.pk
+    #     super(Mentee,self).save(*args,**kwargs)
+    #     if created:
+    #         Goal.objects.create(mentee=1,name= Mentee.goals, achieved = False)
     
 class Goal(models.Model):
     mentee = models.ForeignKey(Mentee, on_delete=models.CASCADE, null= True, default=None)

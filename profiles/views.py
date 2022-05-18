@@ -34,7 +34,7 @@ def login_request(request):
 				login(request, user)
 				messages.info(request, "You are now logged in as {username}.")
 				if user.user_type == 'mentor':
-					return redirect("profiles:update_mentor_profile")
+					return redirect("profiles:mentor_profile")
 				else:
 					return redirect("profiles:mentee_profile")	
 			else:
@@ -43,33 +43,6 @@ def login_request(request):
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
 	return render(request=request, template_name="login.html", context={"login_form":form})
-
-# for the mentor signup page
-# def mentor_request(request):
-# 	if request.method == "POST":
-# 		form = NewMentorForm(request.POST)
-# 		if form.is_valid():
-# 			user = form.save()
-# 			login(request, user)
-# 			messages.success(request, "Registration successful." )
-# 			return redirect("profiles:login")
-# 		messages.error(request, "Unsuccessful registration. Invalid information.")
-# 	form = NewMentorForm()
-# 	return render (request=request, template_name="mentor_signup.html", context={"register_form":form})
-
-# for the mentee signup page
-# def mentee_request(request):
-# 	if request.method == "POST":
-# 		form = NewMenteeForm(request.POST)
-# 		if form.is_valid():
-# 			user = form.save()
-# 			login(request, user)
-# 			messages.success(request, "Registration successful." )
-# 			return redirect("profiles:login")
-# 		messages.error(request, "Unsuccessful registration. Invalid information.")
-# 	form = NewMenteeForm()
-# 	return render (request=request, template_name="mentee_signup.html", context={"register_form":form})
-
 
 # for the mentor profile page
 def mentor_profile_request(request):
@@ -112,27 +85,31 @@ def mentee_profile_request(request):
 		else:
 			print("ERROR : Form is invalid")
 		redirect("profiles:mentee_profile")
-	return render (request=request, template_name="update_mentee_profile.html", context={"mentee_profile_form":form})
+	return render (request=request, template_name="mentee_profile.html", context={"mentee_profile_form":form})
 
 
-def mentee_profile(request):
-	if request.method == "GET":
-		return render(request=request, template_name="mentee_profile.html")
+# def mentee_profile(request):
+# 	if request.method == "GET":
+# 		return render(request=request, template_name="mentee_profile.html")
+	
 
-def mentor_profile(request):
-	if request.method == "GET":
-		return render(request=request, template_name="mentor_profile.html")
+# def mentor_profile(request):
+# 	if request.method == "GET":
+# 		return render(request=request, template_name="mentor_profile.html")
 
 # for marketplace page where the filters can be applied
 def marketplace_request(request):
-	mentors = Mentor.objects.all()
+	mentors = Mentor.objects.filter(mentee_limit__gte=1)
 	interest_filter = InterestFilter(request.GET, queryset=mentors)
 	return render (request=request, template_name="marketplace.html", context={"interest_filter":interest_filter})
 
-
 def matching_request(request):
 	mentor_id = int(request.GET['mentorID'])
-	Mentee.objects.filter(user=request.user.id).update(mentor = mentor_id)
+	limit = int(request.GET['menteeLimit'])
+	if limit > 0:
+		Mentee.objects.filter(user = request.user.id).update(mentor = mentor_id)
+		limit-=1
+		Mentor.objects.filter(user = mentor_id).update(mentee_limit = limit)
 	return render(request=request, template_name="meet_mentor.html")
 
 def goal_tracker_request(request):
