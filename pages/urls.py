@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from django.views.generic import TemplateView  # new
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
    path('', views.site, name='site'),
@@ -17,3 +18,4 @@ urlpatterns += [
     path(r"templates.html", TemplateView.as_view(template_name="pages/templates.html", content_type='text/plain')),
     path(r"templates.html", TemplateView.as_view(template_name="profiles/templates.html", content_type='text/plain')),
 ]
+urlpatterns += staticfiles_urlpatterns()
