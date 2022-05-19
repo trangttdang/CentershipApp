@@ -75,13 +75,14 @@
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);">
+    
 
     <form method="POST" style="text-align: center; position:relative;line-height:2.5em">
       {% csrf_token %}
-      {{ mentor_profile_form|crispy }}                    
+      {{ mentor_profile_form|crispy }}                 
       <button class="button button1" type="submit">Update</button> 
       <br>
-      <a href="http://127.0.0.1:8000/marketplace" class="button button1" style="font-family:Poppins">Marketplace</a>
+      <!-- <a href="{% url 'profiles:marketplace' %}" class="button button1" style="font-family:Poppins">Marketplace</a> -->
     </form>
 </div>
 
@@ -92,8 +93,8 @@
         <p2>Update your profile to share more about you with
           the CenterShip community.
           <br> <br>
-          <b>TIP:</b> Once you have finished updating your profile,
-          click on Marketplace to meet your future mentor!!
+          <!-- <b>TIP:</b> Once you have finished updating your profile,
+          click on Marketplace to meet your future mentor!! -->
         </p2>
       </a>
     </li2>
