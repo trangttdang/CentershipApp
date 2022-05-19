@@ -62,6 +62,7 @@ def mentor_profile_request(request):
 # for the mentee profile page
 def mentee_profile_request(request):
 	form = MenteeProfileForm()
+	
 	if request.method == "POST":
 		form = MenteeProfileForm(request.POST)
 		if form.is_valid():
