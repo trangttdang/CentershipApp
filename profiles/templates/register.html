@@ -7,11 +7,11 @@
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
  <header>
    <ul>
-     <h2><font face = "arial" color="white" size="24" style="position:relative" onclick="window.location.href='http://127.0.0.1:8000/'">CenterShip</font></h2>
+    <h2><a href="{% url 'site' %}" style="text-decoration: none"><font face = "Poppins" color="white" size="24">CenterShip</font></a></h2>
 </ul>
    <ul class="navbar-right">
-     <li><a href= "{% url 'profiles:login' %}" >Login</a></li>
-     <li><a href="{% url 'profiles:register' %}" >Sign Up</a></li>
+    <li><a href= "{% url 'profiles:login' %}" ><font face = "Poppins" color="white">Login</font></a></li>
+    <li><a href="{% url 'profiles:register' %}" ><font face = "Poppins" color="white">Sign Up</font></a></li>
    </ul>
    
  </header>
@@ -65,7 +65,7 @@ p {
   .navbar-right{
   top: 0px;
   right: 5px; /*pixels away from the right of the navbar*/
-  position: fixed;
+  position: absolute;
 }
 span.navigationSpace {
   padding-left: 50px;

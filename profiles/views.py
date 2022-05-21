@@ -62,7 +62,7 @@ def mentor_profile_request(request):
 # for the mentee profile page
 def mentee_profile_request(request):
 	form = MenteeProfileForm()
-	
+
 	if request.method == "POST":
 		form = MenteeProfileForm(request.POST)
 		if form.is_valid():
@@ -111,6 +111,7 @@ def matching_request(request):
 		Mentee.objects.filter(user = request.user.id).update(mentor = mentor_id)
 		limit-=1
 		Mentor.objects.filter(user = mentor_id).update(mentee_limit = limit)
+		
 	return render(request=request, template_name="meet_mentor.html")
 
 def goal_tracker_request(request):
